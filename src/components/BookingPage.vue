@@ -41,6 +41,10 @@
 <script>
 import axios from 'axios';
 
+
+
+const API_URL = process.env.VUE_APP_API_URL;
+
 export default {
   data() {
     return {
@@ -55,7 +59,7 @@ export default {
   methods: {
     submitBooking() {
       console.log(this.form); // Log the form data
-      axios.post('http://localhost:3002/book', this.form)
+      axios.post(`${API_URL}/book`, this.form)
         .then(response => {
           if (response.data && response.data.message) {
             alert(response.data.message);

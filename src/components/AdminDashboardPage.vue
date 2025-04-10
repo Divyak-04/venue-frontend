@@ -58,6 +58,10 @@
 
 <script>
 import axios from 'axios';
+
+
+const API_URL = process.env.VUE_APP_API_URL;
+
 import eventBus from '@/eventBus';
 
 export default {
@@ -72,7 +76,7 @@ export default {
     // Fetch the list of bookings from the server
     async fetchBookings() {
       try {
-        const response = await axios.get('http://localhost:3002/bookings');
+        const response = await axios.get(`${API_URL}/bookings`);
         this.bookings = response.data;
       } catch (error) {
         console.error('Error fetching bookings:', error);

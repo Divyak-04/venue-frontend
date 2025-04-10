@@ -31,6 +31,8 @@
 <script>
 import axios from 'axios';
 
+
+const API_URL = process.env.VUE_APP_API_URL;
 export default {
   data() {
     return {
@@ -44,7 +46,8 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await axios.post('http://localhost:3002/login', {
+        const response = await axios.post(`${API_URL}/login`, {
+
           email: this.email,
           password: this.password,
           role: this.role,
